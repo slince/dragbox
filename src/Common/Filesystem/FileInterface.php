@@ -9,10 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace DragBox\Server\Filesystem;
+namespace DragBox\Common\Filesystem;
 
 interface FileInterface
 {
+    const STATE_MISSING = 'missing';
+
+    const STATE_FRESH = 'fresh';
+
+    const STATE_OUTDATE = 'outdate';
+
+    const STATE_NO_CHANGE = 'no_change';
+
     /**
      * Gets the hash of the file
      *
@@ -51,4 +59,9 @@ interface FileInterface
      * @return \DateTimeInterface
      */
     public function getAccessAt();
+
+    /**
+     * @return array
+     */
+    public function getParameters();
 }

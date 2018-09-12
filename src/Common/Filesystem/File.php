@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace DragBox\Server\Filesystem;
+namespace DragBox\Common\Filesystem;
 
 class File implements FileInterface
 {
@@ -22,6 +22,20 @@ class File implements FileInterface
     protected $updatedAt;
 
     protected $accessAt;
+
+    /**
+     * @var array
+     */
+    protected $parameters;
+
+    public function __construct($key, $hash, $createdAt, $updatedAt, $accessAt)
+    {
+        $this->key = $key;
+        $this->hash = $hash;
+        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
+        $this->accessAt = $accessAt;
+    }
 
     /**
      * @return \DateTimeInterface
@@ -101,5 +115,10 @@ class File implements FileInterface
     public function setAccessAt($accessAt)
     {
         $this->accessAt = $accessAt;
+    }
+
+    public function getParameters()
+    {
+        return $this->parameters;
     }
 }

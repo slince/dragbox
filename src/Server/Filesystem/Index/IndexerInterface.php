@@ -11,10 +11,38 @@
 
 namespace DragBox\Server\Filesystem\Index;
 
+use DragBox\Common\Filesystem\FileInterface;
+
 interface IndexerInterface
 {
     /**
-     * Initialize
+     * Index the file
+     * @param FileInterface $file
      */
-    public function initialize();
+    public function index(FileInterface $file);
+
+    /**
+     * Index files
+     *
+     * @param FileInterface[] $files
+     *
+     * index all files
+     */
+    public function indexAll(array $files);
+
+    /**
+     * Finds the file with the key
+     *
+     * @param string $key
+     * @return null|FileInterface
+     */
+    public function find($key);
+
+    /**
+     * Finds files
+     *
+     * @param array $keys
+     * @return FileInterface[]
+     */
+    public function findAll($keys);
 }

@@ -70,11 +70,11 @@ final class Events
     const REQUEST_PROXY = 'request_proxy';
 
     /**
-     * Fires when the server receives a "register_proxy" message.
+     * Fires when the server receives a "query_files" message.
      *
      * @var string
      */
-    const REGISTER_PROXY = 'register_proxy';
+    const QUERY_FILES = 'query_files';
 
     /**
      * Fires when the server sends a "start_proxy" message.

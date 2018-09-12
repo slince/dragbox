@@ -11,14 +11,14 @@
 
 namespace DragBox\Server\Handler;
 
-use DragBox\Server\Server;
+use DragBox\Server\ServerInterface;
 use React\Socket\ConnectionInterface;
 use Slince\EventDispatcher\Dispatcher;
 
 abstract class MessageActionHandler implements ActionHandlerInterface
 {
     /**
-     * @var Server
+     * @var ServerInterface
      */
     protected $server;
 
@@ -27,7 +27,7 @@ abstract class MessageActionHandler implements ActionHandlerInterface
      */
     protected $connection;
 
-    public function __construct(Server $server, ConnectionInterface $connection)
+    public function __construct(ServerInterface $server, ConnectionInterface $connection)
     {
         $this->server = $server;
         $this->connection = $connection;

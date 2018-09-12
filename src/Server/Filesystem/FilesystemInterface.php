@@ -11,14 +11,17 @@
 
 namespace DragBox\Server\Filesystem;
 
+use DragBox\Common\Filesystem\FileInterface;
+
 interface FilesystemInterface
 {
     /**
-     * Gets the storage path
+     * Queries the files
      *
-     * @return string
+     * @param array $files
+     * @return FileInterface[]
      */
-    public function getStoragePath();
+    public function queryFiles($files);
 
     /**
      * Checks whether the file is fresh.
@@ -33,9 +36,10 @@ interface FilesystemInterface
      * Create a stream pipe.
      *
      * @param string $key
+     * @param string $mode
      * @return resource
      */
-    public function createStreamPipe($key);
+    public function createStream($key, $mode = 'r');
 
     /**
      * Uploads the a file
@@ -48,5 +52,5 @@ interface FilesystemInterface
     /**
      * Creates index
      */
-    public function createIndex();
+    public function index();
 }

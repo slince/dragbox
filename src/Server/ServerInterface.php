@@ -12,6 +12,9 @@
 namespace DragBox\Server;
 
 use Doctrine\Common\Collections\Collection;
+use DragBox\Server\Filesystem\FilesystemInterface;
+use Slince\EventDispatcher\Dispatcher;
+use Slince\EventDispatcher\DispatcherInterface;
 
 interface ServerInterface
 {
@@ -42,4 +45,14 @@ interface ServerInterface
      * @return Configuration
      */
     public function getConfiguration();
+
+    /**
+     * @return FilesystemInterface
+     */
+    public function getFilesystem();
+
+    /**
+     * @return DispatcherInterface
+     */
+    public function getEventDispatcher();
 }

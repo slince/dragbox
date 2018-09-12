@@ -18,6 +18,8 @@ use function Dragbox\Common\jsonBuffer;
 use DragBox\Common\Protocol\Spike;
 use DragBox\Server\Event\Events;
 use DragBox\Server\Event\FilterActionHandlerEvent;
+use DragBox\Server\Filesystem\FilesystemInterface;
+use DragBox\Server\Filesystem\Index\SqlLiteIndexer;
 use DragBox\Version;
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
@@ -64,6 +66,11 @@ class Server extends Application implements ServerInterface
      */
     protected $socket;
 
+    /**
+     * @var FilesystemInterface
+     */
+    protected $filesystem;
+
     public function __construct(Configuration $configuration, LoopInterface $eventLoop = null)
     {
         $this->configuration = $configuration;
@@ -71,6 +78,10 @@ class Server extends Application implements ServerInterface
         $this->eventDispatcher = new Dispatcher();
         $this->clients = new ArrayCollection();
 
+        $this->filesystem = new Filesystem\Filesystem(
+            $this->configuration->getStoragePath(),
+            new SqlLiteIndexer($this->configuration->getSqlLiteFile())
+        );
         parent::__construct(static::NAME, static::VERSION);
     }
 
@@ -161,5 +172,21 @@ class Server extends Application implements ServerInterface
     public function getConfiguration()
     {
         return $this->configuration;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFilesystem()
+    {
+        return $this->filesystem;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEventDispatcher()
+    {
+        return $this->eventDispatcher;
     }
 }

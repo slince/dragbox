@@ -11,12 +11,14 @@
 
 namespace DragBox\Server\Handler;
 
+use DragBox\Common\Filesystem\FileFactory;
+use DragBox\Common\Protocol\Spike;
 use Slince\EventDispatcher\Event;
 use DragBox\Common\Exception\BadRequestException;
 use DragBox\Common\Protocol\SpikeInterface;
 use DragBox\Server\Event\Events;
 
-class RegisterProxyHandler extends RequireAuthHandler
+class QueryFilesHandler extends RequireAuthHandler
 {
     /**
      * {@inheritdoc}
@@ -24,15 +26,15 @@ class RegisterProxyHandler extends RequireAuthHandler
     public function handle(SpikeInterface $message)
     {
         parent::handle($message);
-        //Fires 'register_proxy' event
-        $this->getEventDispatcher()->dispatch(new Event(Events::REGISTER_PROXY, $this, [
+        //Fires 'query_files' event
+        $this->getEventDispatcher()->dispatch(new Event(Events::QUERY_FILES, $this, [
             'message' => $message,
         ]));
-        $chunkServer = $this->server->getChunkServers()->findByTunnelInfo($message->getBody());
-        if (!$chunkServer) {
-            throw new BadRequestException('Can not find the chunk server');
-        }
-        $this->connection->removeAllListeners();
-        $chunkServer->setProxyConnection($message->getHeader('public-connection-id'), $this->connection);
+        $files = FileFactory::createManyFromArray($message->getBody()['files']);
+        $queriedFiles = $this->server->getFilesystem()->queryFiles($files);
+        $message = new Spike('query_files_response', [
+            'files' => $queriedFiles
+        ]);
+        $this->connection->write($message);
     }
 }
