@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace DragBox\Server\Event;
+namespace DragBox\Client\Event;
 
-use DragBox\Common\Protocol\SpikeInterface;
-use DragBox\Server\Handler\ActionHandlerInterface;
 use React\Socket\ConnectionInterface;
 use Slince\EventDispatcher\Event;
+use DragBox\Common\Protocol\SpikeInterface;
+use DragBox\Client\Handler\ActionHandlerInterface;
 
 class FilterActionHandlerEvent extends Event
 {
@@ -37,7 +37,7 @@ class FilterActionHandlerEvent extends Event
     {
         $this->message = $message;
         $this->connection = $connection;
-        parent::__construct(Events::SERVER_ACTION, $subject);
+        parent::__construct(Events::CLIENT_ACTION, $subject);
     }
 
     /**

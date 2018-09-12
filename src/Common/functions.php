@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the slince/spike package.
+ * This file is part of the slince/dragbox package.
  *
  * (c) Slince <taosikai@yeah.net>
  *

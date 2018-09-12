@@ -1,22 +1,22 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/slince/spike/master/resources/logo.png"/>
+    <img src="https://raw.githubusercontent.com/slince/dragbox/master/resources/logo.png"/>
 </p>
 
 <p align="center">
     <a href="LICENSE" target="_blank">
         <img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square">
     </a>
-    <a href="https://travis-ci.org/slince/spike">
-        <img src="https://img.shields.io/travis/slince/spike/master.svg?style=flat-square" alt="Build Status">
+    <a href="https://travis-ci.org/slince/dragbox">
+        <img src="https://img.shields.io/travis/slince/dragbox/master.svg?style=flat-square" alt="Build Status">
     </a>
-    <a href="https://codecov.io/github/slince/spike">
-        <img src="https://img.shields.io/codecov/c/github/slince/spike.svg?style=flat-square" alt="Coverage Status">
+    <a href="https://codecov.io/github/slince/dragbox">
+        <img src="https://img.shields.io/codecov/c/github/slince/dragbox.svg?style=flat-square" alt="Coverage Status">
     </a>
-    <a href="https://packagist.org/packages/slince/spike">
-        <img src="https://img.shields.io/packagist/v/slince/spike.svg?style=flat-square&amp;label=stable" alt="Latest Stable Version">
+    <a href="https://packagist.org/packages/slince/dragbox">
+        <img src="https://img.shields.io/packagist/v/slince/dragbox.svg?style=flat-square&amp;label=stable" alt="Latest Stable Version">
     </a>
-    <a href="https://scrutinizer-ci.com/g/slince/spike/?branch=master">
-        <img src="https://img.shields.io/scrutinizer/g/slince/spike.svg?style=flat-square" alt="Scrutinizer">
+    <a href="https://scrutinizer-ci.com/g/slince/dragbox/?branch=master">
+        <img src="https://img.shields.io/scrutinizer/g/slince/dragbox.svg?style=flat-square" alt="Scrutinizer">
     </a>
 </p>
 
@@ -29,7 +29,7 @@ Spike is a fast reverse proxy built on top of [ReactPHP](https://github.com/reac
 Install via composer
 
 ```bash
-composer global require slince/spike
+composer global require slince/dragbox
 ```
 
 > Both the server and local machine need to install this.
@@ -37,7 +37,7 @@ composer global require slince/spike
 ## Schematic diagram;
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/slince/spike/master/resources/diagram.png"/>
+    <img src="https://raw.githubusercontent.com/slince/dragbox/master/resources/diagram.png"/>
 </p>
 
 ## Configure the server

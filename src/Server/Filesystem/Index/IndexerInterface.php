@@ -9,8 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace DragBox\Server\Handler;
+namespace DragBox\Server\Filesystem\Index;
 
-class PingHandler extends RequireAuthHandler
+interface IndexerInterface
 {
+    /**
+     * Initialize
+     */
+    public function initialize();
 }

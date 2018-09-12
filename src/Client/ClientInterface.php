@@ -16,16 +16,6 @@ use React\Socket\ConnectionInterface;
 interface ClientInterface
 {
     /**
-     * Starts the client
-     */
-    public function start();
-
-    /**
-     * Closes the client
-     */
-    public function close();
-
-    /**
      * Gets the client id given by server.
      *
      * @return string
@@ -38,6 +28,16 @@ interface ClientInterface
      * @param string $id
      */
     public function setId($id);
+
+    /**
+     * Starts the client
+     */
+    public function start();
+
+    /**
+     * Closes the client
+     */
+    public function close();
 
     /**
      * Gets the last active time.

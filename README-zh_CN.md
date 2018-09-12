@@ -1,22 +1,22 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/slince/spike/master/resources/logo.png"/>
+    <img src="https://raw.githubusercontent.com/slince/dragbox/master/resources/logo.png"/>
 </p>
 
 <p align="center">
     <a href="LICENSE" target="_blank">
         <img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square">
     </a>
-    <a href="https://travis-ci.org/slince/spike">
-        <img src="https://img.shields.io/travis/slince/spike/master.svg?style=flat-square" alt="Build Status">
+    <a href="https://travis-ci.org/slince/dragbox">
+        <img src="https://img.shields.io/travis/slince/dragbox/master.svg?style=flat-square" alt="Build Status">
     </a>
-    <a href="https://codecov.io/github/slince/spike">
-        <img src="https://img.shields.io/codecov/c/github/slince/spike.svg?style=flat-square" alt="Coverage Status">
+    <a href="https://codecov.io/github/slince/dragbox">
+        <img src="https://img.shields.io/codecov/c/github/slince/dragbox.svg?style=flat-square" alt="Coverage Status">
     </a>
-    <a href="https://packagist.org/packages/slince/spike">
-        <img src="https://img.shields.io/packagist/v/slince/spike.svg?style=flat-square&amp;label=stable" alt="Latest Stable Version">
+    <a href="https://packagist.org/packages/slince/dragbox">
+        <img src="https://img.shields.io/packagist/v/slince/dragbox.svg?style=flat-square&amp;label=stable" alt="Latest Stable Version">
     </a>
-    <a href="https://scrutinizer-ci.com/g/slince/spike/?branch=master">
-        <img src="https://img.shields.io/scrutinizer/g/slince/spike.svg?style=flat-square" alt="Scrutinizer">
+    <a href="https://scrutinizer-ci.com/g/slince/dragbox/?branch=master">
+        <img src="https://img.shields.io/scrutinizer/g/slince/dragbox.svg?style=flat-square" alt="Scrutinizer">
     </a>
 </p>
 
@@ -27,7 +27,7 @@ Spike是一个可以用来将你的内网服务暴露在公网的快速的反向
 通过 composer 安装
 
 ```bash
-composer global require slince/spike *@beta
+composer global require slince/dragbox *@beta
 ```
 
 > 服务器与本地都需要执行此命令安装
@@ -36,7 +36,7 @@ composer global require slince/spike *@beta
 ## 原理图
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/slince/spike/master/resources/diagram.png"/>
+    <img src="https://raw.githubusercontent.com/slince/dragbox/master/resources/diagram.png"/>
 </p>
 
 ## 配置服务端
