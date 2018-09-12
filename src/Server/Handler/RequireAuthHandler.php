@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the slince/spike package.
+ * This file is part of the slince/dragbox package.
  *
  * (c) Slince <taosikai@yeah.net>
  *
@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Spike\Server\Handler;
+namespace DragBox\Server\Handler;
 
+use DragBox\Common\Protocol\SpikeInterface;
+use DragBox\Server\Event\Events;
+use DragBox\Server\ServerClientInterface;
 use Slince\EventDispatcher\Event;
-use Spike\Common\Protocol\SpikeInterface;
-use Spike\Server\Client;
-use Spike\Server\Event\Events;
 
 class RequireAuthHandler extends MessageActionHandler
 {
     /**
-     * @var Client
+     * @var ServerClientInterface
      */
     protected $client;
 
@@ -44,7 +44,9 @@ class RequireAuthHandler extends MessageActionHandler
     }
 
     /**
-     * @return Client
+     * Gets the current client.
+     *
+     * @return ServerClientInterface
      */
     public function getClient()
     {

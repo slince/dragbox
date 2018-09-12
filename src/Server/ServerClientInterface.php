@@ -9,22 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace DragBox\Client;
+namespace DragBox\Server;
 
 use React\Socket\ConnectionInterface;
 
-interface ClientInterface
+interface ServerClientInterface
 {
-    /**
-     * Starts the client
-     */
-    public function start();
-
-    /**
-     * Closes the client
-     */
-    public function close();
-
     /**
      * Gets the client id given by server.
      *
@@ -40,6 +30,11 @@ interface ClientInterface
     public function setId($id);
 
     /**
+     * Closes the client
+     */
+    public function close();
+
+    /**
      * Gets the last active time.
      *
      * @return \DateTimeInterface
@@ -47,9 +42,16 @@ interface ClientInterface
     public function getActiveAt();
 
     /**
-     * Gets the control connection with server.
+     * Gets the control connection.
      *
      * @return ConnectionInterface
      */
     public function getConnection();
+
+    /**
+     * Gets the info of the client.
+     *
+     * @return array
+     */
+    public function getInfo();
 }

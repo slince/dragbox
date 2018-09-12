@@ -11,6 +11,7 @@
 
 namespace DragBox\Server;
 
+use DragBox\Common\Authentication;
 use Slince\Config\Config;
 
 class Configuration extends Config
@@ -65,5 +66,28 @@ class Configuration extends Config
     public function getDefaultConfigFile()
     {
         return getcwd().'/'.'dragboxd.json';
+    }
+
+    /**
+     * Gets the authentication.
+     *
+     * @return Authentication\AuthenticationInterface|null
+     */
+    public function getAuthentication()
+    {
+        $auth = $this->get('auth', []);
+        $type = isset($auth['type']) ? $auth['type'] : 'simple_password';
+        unset($auth['type']);
+        if ($auth) {
+            switch ($type) {
+                default:
+                    $authentication = new Authentication\PasswordAuthentication($auth);
+                    break;
+            }
+        } else {
+            $authentication = null;
+        }
+
+        return $authentication;
     }
 }

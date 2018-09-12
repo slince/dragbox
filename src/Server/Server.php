@@ -136,4 +136,30 @@ class Server extends Application implements ServerInterface
         $client->close(); //Close the client
         $this->clients->removeElement($client); //Removes the client
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getClients()
+    {
+        return $this->clients;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getClientById($id)
+    {
+        return $this->clients->filter(function(Client $client) use ($id){
+            return $client->getId() === $id;
+        })->first();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getConfiguration()
+    {
+        return $this->configuration;
+    }
 }

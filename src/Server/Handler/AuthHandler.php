@@ -11,9 +11,10 @@
 
 namespace DragBox\Server\Handler;
 
-  use DragBox\Common\Exception\InvalidArgumentException;
+use DragBox\Common\Exception\InvalidArgumentException;
 use DragBox\Common\Protocol\Spike;
 use DragBox\Common\Protocol\SpikeInterface;
+use DragBox\Server\Client;
 
 class AuthHandler extends MessageActionHandler
 {
@@ -30,7 +31,7 @@ class AuthHandler extends MessageActionHandler
             ) {
                 $client = new Client($message->getBody(), $this->connection);
                 $this->server->getClients()->add($client);
-                $response = new Spike('auth_response', $client->toArray(), [
+                $response = new Spike('auth_response', $client->getInfo(), [
                     'code' => 200,
                 ]);
             } else {
