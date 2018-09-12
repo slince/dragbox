@@ -124,4 +124,16 @@ class Server extends Application implements ServerInterface
         });
         $this->eventLoop->run();
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function stopClient(ClientInterface $client)
+    {
+        $this->eventDispatcher->dispatch(new Event(Events::CLIENT_CLOSE, $this, [
+            'client' => $client,
+        ]));
+        $client->close(); //Close the client
+        $this->clients->removeElement($client); //Removes the client
+    }
 }

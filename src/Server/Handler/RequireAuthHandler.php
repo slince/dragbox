@@ -11,7 +11,7 @@
 
 namespace Spike\Server\Handler;
 
-use Slince\Event\Event;
+use Slince\EventDispatcher\Event;
 use Spike\Common\Protocol\SpikeInterface;
 use Spike\Server\Client;
 use Spike\Server\Event\Events;
@@ -39,6 +39,7 @@ class RequireAuthHandler extends MessageActionHandler
             $this->connection->close();
         } else {
             $this->client = $client;
+            $this->client->setActiveAt(new \DateTime()); //Update last active time.
         }
     }
 
@@ -48,16 +49,5 @@ class RequireAuthHandler extends MessageActionHandler
     public function getClient()
     {
         return $this->client;
-    }
-
-    /**
-     * Sends data to client.
-     *
-     * @param string $buffer
-     */
-    protected function sendToClient($buffer)
-    {
-        $this->connection->write($buffer);
-        $this->client->setActiveAt(new \DateTime());
     }
 }

@@ -42,7 +42,7 @@ class Configuration extends Config
      */
     public function getLogLevel()
     {
-        return  isset($this['log']['level']) ? $this['log']['level'] : 'info';
+        return isset($this['log']['level']) ? $this['log']['level'] : 'info';
     }
 
     /**
@@ -55,6 +55,11 @@ class Configuration extends Config
         $address = $this->get('address', '0.0.0.0:8090');
 
         return $address;
+    }
+
+    public function getStoragePath()
+    {
+        return $this['storage_path'];
     }
 
     public function getDefaultConfigFile()

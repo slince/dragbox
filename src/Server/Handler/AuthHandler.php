@@ -11,6 +11,10 @@
 
 namespace DragBox\Server\Handler;
 
+  use DragBox\Common\Exception\InvalidArgumentException;
+use DragBox\Common\Protocol\Spike;
+use DragBox\Common\Protocol\SpikeInterface;
+
 class AuthHandler extends MessageActionHandler
 {
     /**
